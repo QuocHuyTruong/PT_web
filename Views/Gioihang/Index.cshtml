@@ -1,0 +1,151 @@
+﻿@model IEnumerable<CartItem>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_layoutClient.cshtml";
+    int dem = 0;
+    decimal total = 0;
+}
+
+@section script{
+    <script>
+        setTimeout(function () {
+            $('#msg').fadeOut('slow');
+        }, 5000);
+    </script>
+}
+
+@if (Model != null)
+{
+    <div class="innerf-pages section">
+        <div class="container">
+            <div class="privacy about">
+                <h4 class="rad-txt">
+                    <span class="abtxt1">Giỏ hàng</span>
+                    <span class="abtext">của bạn</span>
+                </h4>
+                @if (ViewBag.statusmsg != null)
+                {
+                    <div id="msg" class="alert alert-danger" role="alert">@ViewBag.statusmsg</div>
+                }
+                <div class="checkout-right">
+                    <table class="timetable_sub table-responsive">
+                        <thead>
+                            <tr>
+                                <th>SL No.</th>
+                                <th>Product</th>
+                                <th>Quantity</th>
+                                <th>Product Name</th>
+                                <th>Status</th>
+                                <th>Price</th>
+                                <th>Remove</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var car in Model)
+                            {
+                                dem++;
+                                <tr class="rem1">
+                                    <td class="invert">@dem</td>
+                                    <td class="invert-image">
+                                        <a href="single_product.html">
+                                            <img src="~/Assets/books/@car.Img" alt=" " class="img-responsive">
+                                        </a>
+                                    </td>
+                                    <td class="invert">
+                                        <div class="quantity">
+                                            <div class="quantity-select">
+                                                <div class="entry value" style="font-weight:bold; color:black">
+                                                    <span>@car.Qty</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="invert">@car.Name</td>
+                                    <td class="invert">
+                                        @if (car.Status == true)
+                                        {
+                                            <p class="text-success">Còn hàng</p>
+                                        }
+                                        else
+                                        {
+                                            <p class="text-danger">Hết hàng</p>
+                                        }
+                                    </td>
+                                    <td class="invert">@string.Format("{0:0,0}", car.Price) VNĐ</td>
+                                    <td class="invert">
+                                        <div class="rem">
+                                            <a class="close1" href="@Url.Action("CartDel","Gioihang",new { productid = car.ProductID})"></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div class="checkout-left">
+                    <div class="col-md-4 checkout-left-basket">
+                        <h4>Continue to basket</h4>
+                        <ul>
+                            @foreach (var car in Model)
+                            {
+                                <li>
+                                    @car.Name
+                                    <i>-</i>
+                                    <span>@string.Format("{0:0,0}", car.Amount) VNĐ</span>
+                                </li>
+                                dem++;
+                                total = total + car.Amount;
+                            }
+                            <li style="font-weight:bold; color:black">
+                                <hr />
+                                Total
+                                <i>-</i>
+                                <span>@string.Format("{0:0,0}", total) VNĐ</span>
+                                <hr />
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-8 address_form text-center">
+                        <h4>Hình thức thanh toán</h4>
+                        <div class="creditly-card-form shopf-sear-headinfo_form">
+                            <div class="creditly-wrapper wrapper">
+                                <div class="information-wrapper">
+                                    <button class="submit check_out">
+                                        <a href="@Url.Action("Payment","Gioihang",new { type = 1 })">
+                                            Thanh toán khi nhận hàng
+                                        </a>
+                                    </button>
+                                    <button class="submit check_out">
+                                        <a href="@Url.Action("Payment","Gioihang",new { type = 2 })">
+                                            Thanh toán online
+                                        </a>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="clearfix"> </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+}
+else
+{
+    <div style="display:flex">
+        <div style="margin:auto; color:red">
+            <table>
+                <tr>
+                    <th>
+                        KHÔNG CÓ SẢN PHẨM TRONG GIỎ HÀNG
+                    </th>
+                </tr>
+            </table>
+        </div>
+    </div>
+}

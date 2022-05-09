@@ -1,0 +1,194 @@
+﻿@{
+    Layout = null;
+}
+@{
+    var cus = ViewBag.cus;
+}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <title>Thanh toán</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Chronicle Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+	SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
+    <!-- Custom Theme files -->
+    <link href="~/Assets/client/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+    <!-- shop css -->
+    <link href="~/Assets/client/css/shop.css" type="text/css" rel="stylesheet" media="all">
+    <link href="~/Assets/client/css/checkout.css" type="text/css" rel="stylesheet" media="all">
+    <!-- easy-responsive-tabs css -->
+    <link rel="stylesheet" href="~/Assets/client/css/easy-responsive-tabs.css" type="text/css" media="all" />
+    <link href="~/Assets/client/css/style.css" type="text/css" rel="stylesheet" media="all">
+    <!-- //Custom Theme files -->
+    <!-- online-fonts -->
+    <!-- logo -->
+    <link href="//fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet">
+    <!-- titles -->
+    <link href="//fonts.googleapis.com/css?family=Merriweather+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
+    <!-- body -->
+    <link href="//fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+    <!-- //online-fonts -->
+</head>
+
+@using (Html.BeginForm("datmua", "Gioihang",new { type = 2 } ,FormMethod.Post))
+{
+    <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+        <div id="home">
+            <!--Payment-->
+            <div class="innerf-pages section">
+                <div class="container">
+                    <div class="privacy about">
+                        <h4 class="rad-txt">
+                            <span class="abtxt1">Chi tiết</span>
+                            <span class="abtext">Thanh toán</span>
+                        </h4>
+                        <!--/tabs-->
+                        <div class="responsive_tabs innfpage-tabs">
+                            <div id="horizontalTab">
+                                <ul class="resp-tabs-list">
+                                    <li>Thanh toán Online</li>
+                                </ul>
+                                <div class="resp-tabs-container">
+                                    <!--//tab_one-->
+                                    <div class="tab2">
+                                        <div class="pay_info">
+                                            <form class="creditly-card-form shopf-sear-headinfo_form">
+                                                <section class="creditly-wrapper payf_wrapper">
+                                                    <div class="credit-card-wrapper">
+                                                        <div class="first-row form-group">
+                                                            <div class="controls">
+                                                                <label class="control-label">Tên khách hàng</label>
+                                                                <input class="billing-address-name form-control" readonly type="text" value="@cus.CustomerName" name="name">
+                                                            </div>
+                                                            <div class="paymntf_card_number_grids">
+                                                                <div class="fpay_card_number_grid_left">
+                                                                    <div class="controls">
+                                                                        <label class="control-label">Số điện thoại</label>
+                                                                        <input class="billing-address-name form-control" readonly type="text" value="@cus.PhoneNumber" name="sdt">
+                                                                    </div>
+                                                                </div>
+                                                                <h5>Chọn ngân hàng</h5>
+                                                                <div class="section_room_pay">
+                                                                    <select class="year">
+                                                                        <option value="">Chọn ngân hàng</option>
+                                                                        <option value="ALB-NA">Vietcombank</option>
+                                                                        <option value="ADB-NA">Vietinbank</option>
+                                                                        <option value="BBK-NA">BIDV</option>
+                                                                        <option value="BBC-NA">Agribank</option>
+                                                                        <option value="BBR-NA">VPBank</option>
+                                                                        <option value="BOI-NA">Sacombank</option>
+                                                                        <option value="BOM-NA">ACB</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="fpay_card_number_grid_right">
+                                                                    <div class="controls">
+                                                                        <label class="control-label">Số thẻ</label>
+                                                                        <input class="number credit-card-number form-control" type="text" name="number" inputmode="numeric" autocomplete="cc-number"
+                                                                               autocompletetype="cc-number" x-autocompletetype="cc-number" placeholder="&#149;&#149;&#149;&#149; &#149;&#149;&#149;&#149; &#149;&#149;&#149;&#149; &#149;&#149;&#149;&#149;">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="fpay_card_number_grid_right">
+                                                                    <div class="controls">
+                                                                        <label class="control-label">CVV</label>
+                                                                        <input class="security-code form-control" Â· inputmode="numeric" type="text" name="security-code" placeholder="&#149;&#149;&#149;">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="fpay_card_number_grid_right">
+                                                                    <div class="controls">
+                                                                        <label class="control-label">Địa chỉ nhận hàng</label>
+                                                                        <input class="security-code form-control" Â· inputmode="numeric" type="text" name="diachi" placeholder="Địa chỉ...">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="fpay_card_number_grid_right">
+                                                                    <div class="controls">
+                                                                        <label class="control-label">Ghi chú</label>
+                                                                        <input class="billing-address-name form-control" type="text" name="note" placeholder="Ghi chú...">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="clear"> </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <input type="submit" value="Đặt mua">
+                                                    </div>
+                                                </section>
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--//tabs-->
+                    </div>
+
+                </div>
+            </div>
+            <!-- //payment -->
+        </div>
+        <!-- //home -->
+        <!-- Common js -->
+        <script type="text/javascript" src="~/Assets/client/js/jquery-2.2.3.min.js"></script>
+        <!--// Common js -->
+        <!-- cart-js -->
+        <script src="~/Assets/client/js/minicart.js"></script>
+        <script>
+            chr.render();
+
+            chr.cart.on('new_checkout', function (evt) {
+                var items, len, i;
+
+                if (this.subtotal() > 0) {
+                    items = this.items();
+
+                    for (i = 0, len = items.length; i < len; i++) { }
+                }
+            });
+        </script>
+        <!-- //cart-js -->
+        <!-- easy-responsive-tabs -->
+        <script src="~/Assets/client/js/easy-responsive-tabs.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#horizontalTab').easyResponsiveTabs({
+                    type: 'default', //Types: default, vertical, accordion
+                    width: 'auto', //auto or any width like 600px
+                    fit: true, // 100% fit in a container
+                    closed: 'accordion', // Start closed if in accordion view
+                    activate: function (event) { // Callback function if tab is switched
+                        var $tab = $(this);
+                        var $info = $('#tabInfo');
+                        var $name = $('span', $info);
+                        $name.text($tab.text());
+                        $info.show();
+                    }
+                });
+            });
+        </script>
+
+        <!-- //easy-responsive-tabs -->
+        <!-- credit-card -->
+        <script src="~/Assets/client/js/creditly.js"></script>
+        <link rel="stylesheet" href="~/Assets/client/css/creditly.css" type="text/css" media="all" />
+
+
+        <!--search jQuery-->
+        <script src="~/Assets/client/js/main.js"></script>
+        <!--search jQuery-->
+        <!-- Scrolling Nav JavaScript -->
+        <script src="~/Assets/client/js/scrolling-nav.js"></script>
+        <!-- //fixed-scroll-nav-js -->
+        <!--//scripts-->
+        <!-- //gallery-js  -->
+        <!-- start-smooth-scrolling -->
+        <script src="~/Assets/client/js/move-top.js"></script>
+        <script src="~/Assets/client/js/easing.js"></script>
+
+        <script src="~/Assets/client/js/bootstrap.js"></script>
+    </body>
+}
+
+</html>
+<noembed>

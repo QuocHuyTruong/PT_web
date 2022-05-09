@@ -1,0 +1,51 @@
+﻿@model BookStore.Models.User
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Thêm mới người dùng</h2>
+
+@{ Html.BeginForm("Create", "Users", FormMethod.Post, new { enctype = "multipart/form-data" });}
+@Html.AntiForgeryToken()
+<form method="post" action="url">
+    <table>
+        <tr>
+            <td>Tên đăng nhập</td>
+            <td>
+                <input type="text" value="" name="username" />
+            </td>
+        </tr>
+        <tr>
+            <td>Mật khẩu</td>
+            <td>
+                <input type="text" value="" name="matkhau" />
+            </td>
+        </tr>
+        <tr>
+            <td>Chức vụ</td>
+            <td>
+                <select name="roleid">
+                    @foreach (var item in (SelectList)ViewBag.RoleID)
+                    {
+                        <option value="@item.Value">@item.Text</option>
+
+                    }
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Submit" />
+            </td>
+        </tr>
+    </table>
+</form>
+
+@{ Html.EndForm();}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

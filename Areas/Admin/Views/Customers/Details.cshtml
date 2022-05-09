@@ -1,0 +1,73 @@
+﻿@model BookStore.Models.Customer
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Thông tin khách hàng</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            Địa chỉ khách hàng
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CustomerAddress)
+        </dd>
+
+
+        <dt>
+            Tên khách hàng
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CustomerName)
+        </dd>
+
+
+        <dt>
+            Giới tính
+        </dt>
+        <dd>
+            @if (@Html.DisplayNameFor(model => model.Gender).Equals(true))
+            {
+                <p>Nam</p>
+            }
+            else
+            {
+                <p>Nữ</p>
+            }
+        </dd>
+
+
+        <dt>
+            Ngày sinh
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Birth)
+        </dd>
+
+
+        <dt>
+            Số điện thoại
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+
+
+        <dt>
+            Email
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.CustomerID }) |
+    @Html.ActionLink("Quay lại", "Index")
+</p>

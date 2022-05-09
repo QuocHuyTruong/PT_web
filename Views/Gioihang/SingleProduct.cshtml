@@ -1,0 +1,108 @@
+﻿@model BookStore.Models.Book
+@{
+    ViewBag.Title = "SingleProduct";
+    Layout = "~/Views/Shared/_layoutClient.cshtml";
+    string ID = ViewBag.ID;
+}
+
+
+<div class="innerf-pages section">
+        <div class="container">
+            <div class="col-md-4 single-right-left ">
+                <div class="grid images_3_of_2">
+                    <div class="flexslider1">
+                        <ul class="slides">
+                            <li data-thumb="">
+                                <div class="thumb-image">
+                                    <img src="~/Assets/books/@Html.DisplayFor(model => model.Avatar)" data-imagezoom="true" alt=" " class="img-responsive">
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-8 single-right-left simpleCart_shelfItem">
+                <h3>
+                    @Html.DisplayFor(model => model.BookName)
+                </h3>
+                <p>
+                    by
+                    <a href="#">@Html.DisplayFor(model => model.Author.AuthorName)</a>
+                </p>
+                <div class="caption">
+
+                    <ul class="rating-single">
+                        <li>
+                            <a href="#">
+                                <span class="fa fa-star yellow-star" aria-hidden="true"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa fa-star yellow-star" aria-hidden="true"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa fa-star yellow-star" aria-hidden="true"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa fa-star yellow-star" aria-hidden="true"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa fa-star yellow-star" aria-hidden="true"></span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"> </div>
+                    <h6>
+                        @string.Format("{0:0,0}", Model.Price) VNĐ
+                    </h6>
+                </div>
+                <div class="desc_single">
+                    <h5>Mô tả</h5>
+                    <p>
+                        Pellentesque quis orci sapien. Phasellus at libero in nunc egestas tincidunt. In dictum arcu purus, ultricies tincidunt
+                        urna vehicula at. Aenean iaculis urna nec libero scelerisque, ac ullamcorper neque porta.
+                    </p>
+                </div>
+                <div class="occasional">
+                    <h5>Thông tin</h5>
+                    <ul class="single_specific">
+                        <li>
+                            <span>Bìa :</span> @Html.DisplayFor(model => model.BookCover)
+                        </li>
+                        <li>
+                            <span>Nhà xuất bản :</span> @Html.DisplayFor(model => model.Publisher)
+                        </li>
+                        <li>
+                            <span>Ngày xuất bản :</span> @Html.DisplayFor(model => model.PublicByDate)
+                        </li>
+                        <li>
+                            <span>Số trang :</span> @Html.DisplayFor(model => model.Pages)
+                        </li>
+                        <li>
+                            <span>Còn lại :</span> @Html.DisplayFor(model => model.Quantity)
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="clearfix"></div>
+                <div class="occasion-cart">
+                    <button class="submit check_out">
+                        <a href="@Url.Action("CartAdd","Gioihang",new { productid = ID })">
+                            Thêm vào giỏ hàng
+                        </a>
+                    </button>
+                </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+

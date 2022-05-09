@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    var grid = new WebGrid(source: Model, rowsPerPage: 5);
+}
+
+@section script{
+    <script>
+        setTimeout(function () {
+            $('#msg').fadeOut('slow');
+        }, 5000);
+    </script>
+}
+
+<h2 style="text-align:center">DUYỆT ĐƠN HÀNG</h2>
+
+@if (TempData["status"] != null)
+{
+    <div id="msg" class="alert alert-success" role="alert">@ViewBag.msg</div>
+}
+@if (TempData["error"] != null)
+{
+    <div id="msg" class="alert alert-danger" role="alert">@ViewBag.msg</div>
+}
+
+<div id="gridContent">
+    @ViewBag.TB
+    @grid.GetHtml(
+        tableStyle: "table table-sm table-bordered table-hover table-striped",
+        headerStyle: "thead-dark",
+        footerStyle: "grid-footer",
+        fillEmptyRows: true,
+        mode: WebGridPagerModes.Numeric,
+        alternatingRowStyle: "alternatingRowStyle",
+        columns: new[]
+        {
+            grid.Column("STT",format: item => item.WebGrid.Rows.IndexOf(item) + 1 + Math.Round(Convert.ToDouble(grid.TotalRowCount / grid.PageCount) / grid.RowsPerPage) * grid.RowsPerPage * grid.PageIndex),
+            grid.Column("OrderID","Mã Đơn Hàng"),
+            grid.Column("Customer.CustomerName","Tên Khách Hàng"),
+            grid.Column("Customer.CustomerAddress","Địa Chỉ"),
+            grid.Column("Payment.PaymentName","Loại Thanh Toán "),
+            grid.Column("Address","Địa Chỉ Giao Hàng"),
+            grid.Column("OrderByDate","Ngày đặt hàng",format:@<text> @item.OrderByDate.ToString("dd/MM/yyyy")</text>),
+grid.Column("Notes","Ghi Chú"),
+grid.Column("Total","Tổng tiền"),
+grid.Column("Chức năng", format: @<text>
+                <a href="@Url.Action("Duyet",
+                        new { id = item.OrderID})" class="edit-btn"><abbr title="Duyệt đơn hàng"><i class="fas fa-clipboard-check" style="width:20px;height:20px"></i></abbr></a>
+                <a href="@Url.Action("Details","OrderDetails",
+                        new { id = item.OrderID})" class="edit-btn"><abbr title="Xem chi tiết"><i class="fas fa-clipboard-list" style="width:20px;height:20px"></i></abbr></a>
+                <a href="@Url.Action("Delete",
+                        new { id = item.OrderID})" class="edit-btn"><abbr title="Xóa đơn hàng"><i class="fas fa-calendar-times" style="width:20px;height:20px"></i></abbr></a>
+</text>),
+}
+)
+</div>
+

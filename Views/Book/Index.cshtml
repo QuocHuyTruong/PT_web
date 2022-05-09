@@ -1,0 +1,105 @@
+﻿@*@model IEnumerable<BookStore.Models.Book>*@
+
+@model PagedList.IPagedList<BookStore.Models.Book>
+@using PagedList.Mvc;
+
+@{
+    Layout = "~/Views/Shared/_layoutBook.cshtml";
+}
+
+
+<!-- product right -->
+<div class="left-ads-display col-md-9">
+    @if (ViewBag.msg != null)
+    {
+        <div id="msg" class="alert alert-success" role="alert">@ViewBag.msg</div>
+    }
+    <div class="wrapper_top_shop">
+        <!-- product-sec1 -->
+        <div class="product-sec1">
+            <!-- row1-->
+            @foreach (var item in Model)
+            {
+                <div class="col-md-3 product-men">
+                    <div class="product-chr-info chr">
+                        <div class="thumbnail">
+                            <a href="@Url.Action("SingleProduct","Gioihang",new { productid = item.BookID})">
+                                <img src="~/Assets/books/@Html.DisplayFor(modelItem => item.Avatar)" alt="ahihi">
+                            </a>
+                        </div>
+                        <div class="caption" style="font-size:small">
+                            <h4 style="overflow: hidden; text-overflow:ellipsis;white-space: nowrap ">@Html.DisplayFor(modelItem => item.BookName)</h4>
+                            <p>@Html.DisplayFor(modelItem => item.Author.AuthorName)</p>
+                            <div class="matrlf-mid">
+                                <ul class="rating">
+                                    <li>
+                                        <a href="#">
+                                            <span class="fa fa-star yellow-star" aria-hidden="true"></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <span class="fa fa-star yellow-star" aria-hidden="true"></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <span class="fa fa-star yellow-star" aria-hidden="true"></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <span class="fa fa-star gray-star" aria-hidden="true"></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <span class="fa fa-star gray-star" aria-hidden="true"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="text-center text-gray-100">
+                                    @if (item.Quantity == 0)
+                                    {
+                                        <p class="text-danger">Hết hàng</p>
+                                    }
+                                    else
+                                    {
+                                        <p class="text-success">Còn @item.Quantity</p>
+                                    }
+                                    @*Còn @item.Quantity*@
+                                </ul>
+                                <ul class="price-list text-center">
+                                    @Html.DisplayFor(modelItem => item.Price) VNĐ
+                                </ul>
+
+                                <div class="clearfix"> </div>
+                            </div>
+                            <form action="@Url.Action("CartAdd","Gioihang",new { productid = item.BookID})" method="post">
+                                <input type="hidden" name="cmd" value="_cart">
+                                <input type="hidden" name="add" value="1">
+                                <input type="hidden" name="chr_item" value="Book1">
+                                <input type="hidden" name="amount" value="100.00">
+                                <button type="submit" class="chr-cart pchr-cart">
+                                    Thêm vào giỏ
+                                    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                                </button>
+                                <a href="#" data-toggle="modal" data-target="#myModal1"></a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            }
+            <!-- //row1 -->
+            <div class="clearfix"></div>
+        </div>
+        <!-- //product-sec1 -->
+        <div class="clearfix"></div>
+    </div>
+</div>
+<div class="text-center">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+</div>
+<div class="clearfix"></div>
+
+

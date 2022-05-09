@@ -1,0 +1,115 @@
+﻿
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_layoutClient.cshtml";
+}
+
+@{
+    var cus = ViewBag.cus;
+}
+@using (Html.BeginForm("Contact", "Khachhang", FormMethod.Post))
+{
+    <div class="section contact" id="contact">
+        <div class="container">
+            <h4 class="rad-txt text-center">
+                <span class="abtxt1">Liên hệ</span>
+                <span class="abtext">Chúng tôi </span>
+            </h4>
+            <div class="contact-form">
+                <div class="col-md-7">
+                    <!-- contact form grid -->
+                    <div class="contact-top1">
+                        <h5>Gửi góp ý cho chúng tôi</h5>
+                        <form action="#" class="form_w3layouts" method="post">
+                            <input type="text" readonly value="@cus.CustomerName">
+                            <input type="text" readonly value="@cus.PhoneNumber">
+
+                            <input class="email" readonly type="email" value="@cus.Email">
+                            <textarea placeholder="Message" name="mess"></textarea>
+                            <input type="submit" value="Submit">
+                        </form>
+                    </div>
+                    <!--  //contact form grid ends here -->
+                </div>
+                <!-- contact map grid -->
+                <div class="col-md-5 map contact-right">
+                    <div class="contact-top1">
+                        <h5>Bản đồ</h5>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3898.63697370623!2d109.19619071463745!3d12.272828191317034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317067f22334adfb%3A0x47d11b16b8dbe1c8!2zTmjDoCBTw6FjaCBWxKluaCBQaMaw4bubYw!5e0!3m2!1svi!2s!4v1640869122529!5m2!1svi!2s" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+                <!--//contact map grid ends here-->
+                <div class="clearfix"></div>
+            </div>
+            <!-- contact details -->
+            <div class="contact-bottom">
+                <h6>Thông tin liên hệ</h6>
+                <!-- contact details left -->
+                <div class="col-md-6 col-sm-6">
+                    <div class="contact-left">
+                        <div class="address">
+                            <h5>Địa chỉ:</h5>
+                            <p>
+                                3 Hai Tháng Tư, Vĩnh Phước, Thành phố Nha Trang
+                                <br> Khánh Hòa 650000, Việt Nam
+                            </p>
+                        </div>
+                        <div class="address address-mdl">
+                            <h5>Số điện thoại:</h5>
+                            <p>
+                                +84 258 3542 976
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- //contact details left -->
+                <!-- contact details right -->
+                <div class="col-md-6 col-sm-6">
+                    <div class="contact-right">
+                        <div class="address">
+                            <h5>Email:</h5>
+                            <p>
+                                <a href="#">vinhphuoc@gmail.com</a>
+                            </p>
+                            <p>
+                                <a href="#">vinhphuoc@gmail.com</a>
+                            </p>
+                        </div>
+                        <div class="footer-social address  address-mdl">
+                            <h5>Mạng xã hội</h5>
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <span class="fa fa-facebook icon_facebook"></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="fa fa-twitter icon_twitter"></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="fa fa-dribbble icon_dribbble"></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="fa fa-google-plus icon_g_plus"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <!-- //contact-details right -->
+                <div class="clearfix"></div>
+            </div>
+            <!-- //contact details ends here -->
+        </div>
+    </div>
+}
+
+
+

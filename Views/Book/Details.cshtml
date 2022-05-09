@@ -1,0 +1,146 @@
+﻿@model BookStore.Models.Book
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Book</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Author.AuthorName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Author.AuthorName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Producer.ProducerName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Producer.ProducerName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.BookName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.BookName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DiscountPercent)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DiscountPercent)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Quantity)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.TotalSell)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.TotalSell)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Avatar)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Avatar)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CreateByDate)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CreateByDate)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Url)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Url)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Publisher)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Publisher)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.PublicByDate)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.PublicByDate)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.BookCover)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.BookCover)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Pages)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Pages)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.BookDescription)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.BookDescription)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.BookID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

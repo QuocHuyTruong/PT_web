@@ -1,0 +1,133 @@
+﻿@model BookStore.Models.Book
+
+@{
+    ViewBag.Title = "Taomoi";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style type="text/css">
+    table td {
+        padding: 5px 10px;
+    }
+
+    input, textarea, select {
+        border: solid 1px #ddd;
+        padding: 5px 20px;
+        width: 100%;
+    }
+
+    select {
+        width: 180px;
+    }
+
+    input[type="submit"] {
+        width: auto;
+        background: red;
+        color: #fff;
+    }
+</style>
+
+
+<h2>Thêm mới sách</h2>
+
+@{ Html.BeginForm("Create", "Books", FormMethod.Post, new { enctype = "multipart/form-data" });}
+@Html.AntiForgeryToken()
+<form method="post" action="url">
+    <table>
+        <tr>
+            <td>Tên sách</td>
+            <td>
+                <input type="text" value="" name="tensach" />
+            </td>
+        </tr>
+        <tr>
+            <td>Giá</td>
+            <td>
+                <input type="number" value="" name="gia" />
+            </td>
+        </tr>
+        <tr>
+            <td>Giảm giá (%)</td>
+            <td>
+                <input type="number" value="" name="giamgia" />
+            </td>
+        </tr>
+        <tr>
+            <td>Số lượng</td>
+            <td>
+                <input type="number" value="" name="soluong" />
+            </td>
+        </tr>
+        <tr>
+            <td>Ảnh</td>
+            <td>
+                <input type="file" name="avatar" value="Chọn ảnh" accept="*image" required />
+            </td>
+        </tr>
+        <tr>
+            <td>Url</td>
+            <td>
+                <input type="text" name="url" value="" required />
+            </td>
+        </tr>
+        <tr>
+            <td>Nhà xuất bản</td>
+            <td>
+                <input type="text" name="nhaxuatban" value="" required />
+            </td>
+        </tr>
+        <tr>
+            <td>Năm xuất bản</td>
+            <td>
+                <input type="date" name="namxuatban" value="" required />
+            </td>
+        </tr>
+        <tr>
+            <td>Loại bìa</td>
+            <td>
+                <input type="text" name="loaibia" value="" required />
+            </td>
+        </tr>
+        <tr>
+            <td>Số trang</td>
+            <td>
+                <input type="number" name="sotrang" value="" required />
+            </td>
+        </tr>
+        <tr>
+            <td>Mô tả</td>
+            <td>
+                <textarea cols="30" rows="10" name="description"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>Tác giả</td>
+            <td>
+                <select name="author">
+                    @foreach (var item in (SelectList)ViewBag.listAuthorID)
+                    {
+                        <option value="@item.Value">@item.Text</option>
+
+                    }
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Submit" />
+            </td>
+        </tr>
+    </table>
+</form>
+
+@{ Html.EndForm();}
+
+
+
+
+
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

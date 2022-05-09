@@ -1,0 +1,82 @@
+﻿@model BookStore.Models.Category
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style type="text/css">
+    table td {
+        padding: 5px 10px;
+    }
+
+    input, textarea, select {
+        border: solid 1px #ddd;
+        padding: 5px 20px;
+        width: 100%;
+    }
+
+    select {
+        width: 180px;
+    }
+
+    input[type="submit"] {
+        width: auto;
+        background: red;
+        color: #fff;
+    }
+</style>
+
+
+<h2>Thêm thể loại</h2>
+
+@{ Html.BeginForm("Create", "Categories", new { enctype = "multipart/form-data" });}
+@Html.AntiForgeryToken()
+
+<form method="post" action="url">
+    <table>
+        <tr>
+            <td>Tên thể loại</td>
+            <td>
+                <input type="text" value="" name="tentheloai" />
+            </td>
+        </tr>
+        <tr>
+            <td>Mô tả</td>
+            <td>
+                <input type="text" value="" name="mota" />
+            </td>
+        </tr>
+        <tr>
+            <td>Url</td>
+            <td>
+                <input type="text" value="" name="url" />
+            </td>
+        </tr>
+        <tr>
+            <td>Nhóm</td>
+            <td>
+                <select name="nhom">
+                    @foreach (var item in (SelectList)ViewBag.CateGroupID)
+                    {
+                        <option value="@item.Value">@item.Text</option>
+
+                    }
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Submit" />
+            </td>
+        </tr>
+    </table>
+</form>
+
+
+@{ Html.EndForm();}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

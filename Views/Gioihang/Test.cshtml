@@ -1,0 +1,12 @@
+﻿@model IEnumerable<CartItem>
+@{
+    Layout = null;
+}
+
+@if (Model != null)
+{
+    foreach (var car in Model)
+    {
+        @car.Qty
+    }
+}
