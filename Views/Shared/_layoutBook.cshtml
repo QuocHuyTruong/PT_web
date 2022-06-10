@@ -156,7 +156,7 @@
             <div class="banner-text-inner">
                 <div class="container">
                     <h2 class="title-inner">
-                        world of reading
+                        Vĩnh Phước
                     </h2>
 
                 </div>
@@ -173,37 +173,27 @@
                 <div class="side-bar col-md-3">
                     <!--preference -->
                     <div class="left-side">
-                        <h3 class="shopf-sear-headits-sear-head">
-                            Loại
-                        </h3>
-                        <ul>
-                            <li>
-                                <input type="checkbox" class="checked">
-                                <span class="span">Tiểu sử</span>
-                            </li>
-                            <li>
-                                <input type="checkbox" class="checked">
-                                <span class="span">Viễn tưởng</span>
-                            </li>
-                            <li>
-                                <input type="checkbox" class="checked">
-                                <span class="span">Quản lí</span>
-                            </li>
-                            <li>
-                                <input type="checkbox" class="checked">
-                                <span class="span">Kinh doanh</span>
-                            </li>
+                            <h3 class="shopf-sear-headits-sear-head">
+                                Hot
+                            </h3>
+                            <ul>
+                                <li>
+                                    <a href="@Url.Action("Search","Book", new { hot = "new"})"><span class="span">Sách mới nhất</span></a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Search","Book", new { hot = "bestsell"})"><span class="span">Sách bán chạy nhất</span></a>
+                                </li>
+                            </ul>
 
-                        </ul>
                     </div>
                     <!-- // preference -->
                     <div class="search-hotel">
                         <h3 class="shopf-sear-headits-sear-head">
                             <span>Tác giả</span>
                         </h3>
-                        <form action="#" method="post">
-                            <input type="search" placeholder="search here" name="search" required="">
-                            <input type="submit" value="Search">
+                        <form action="@Url.Action("Search","Book")" method="post">
+                            <input type="search" placeholder="Nhập tên tác giả" name="ten" required="">
+                            <input type="submit" value="Tìm kiếm">
                         </form>
                     </div>
                     <!-- price range -->
@@ -211,28 +201,22 @@
                         <h3 class="shopf-sear-headits-sear-head">Giá</h3>
                         <ul>
                             <li>
-                                <input type="checkbox" class="checked">
-                                <span class="span">Dưới 10.000 VNĐ</span>
+                                <a href="@Url.Action("Search","Book", new { gia = "1"})"><span class="span">Từ dưới 10.000 VNĐ</span></a>
                             </li>
                             <li>
-                                <input type="checkbox" class="checked">
-                                <span class="span">10.000 VNĐ - 20.000 VNĐ</span>
+                                <a href="@Url.Action("Search","Book", new { gia = "2"})"><span class="span">10.000 VNĐ - 30.000 VNĐ</span></a>
                             </li>
                             <li>
-                                <input type="checkbox" class="checked">
-                                <span class="span">20.000 VNĐ - 30.000 VNĐ</span>
+                                <a href="@Url.Action("Search","Book", new { gia = "3"})"><span class="span">30.000 VNĐ - 50.000 VNĐ</span></a>
                             </li>
                             <li>
-                                <input type="checkbox" class="checked">
-                                <span class="span">30.000 VNĐ - 40.000 VNĐ</span>
+                                <a href="@Url.Action("Search","Book", new { gia = "4"})"><span class="span">50.000 VNĐ - 80.000 VNĐ</span></a>
                             </li>
                             <li>
-                                <input type="checkbox" class="checked">
-                                <span class="span">40.000 VNĐ - 50.000 VNĐ</span>
+                                <a href="@Url.Action("Search","Book", new { gia = "5"})"><span class="span">80.000 VNĐ - 100.000 VNĐ</span></a>
                             </li>
                             <li>
-                                <input type="checkbox" class="checked">
-                                <span class="span">50.000 VNĐ trở lên</span>
+                                <a href="@Url.Action("Search","Book", new { gia = "6"})"><span class="span">Trên 100.000</span></a>
                             </li>
                         </ul>
                     </div>
@@ -271,89 +255,6 @@
                             </li>
                         </ul>
                     </div>
-                    <!-- //discounts -->
-                    <!-- discounts -->
-                    <div class="left-side">
-                        <h3 class="shopf-sear-headits-sear-head">Giảm giá</h3>
-                        <ul>
-                            <li>
-                                <input type="checkbox" class="checked">
-                                <span class="span">5% - 20%</span>
-                            </li>
-                            <li>
-                                <input type="checkbox" class="checked">
-                                <span class="span">20% - 40%</span>
-                            </li>
-                            <li>
-                                <input type="checkbox" class="checked">
-                                <span class="span">40% - 60%</span>
-                            </li>
-                            <li>
-                                <input type="checkbox" class="checked">
-                                <span class="span">60% trở lên</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- //discounts -->
-                    <!-- reviews -->
-                    <div class="customer-rev left-side">
-                        <h3 class="shopf-sear-headits-sear-head">Đánh giá của khách hàng</h3>
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <span>5.0</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                                    <span>4.0</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                                    <span>3.5</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                                    <span>3.0</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                                    <span>2.5</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- //reviews -->
-
-
                 </div>
                 <!-- //product left -->
                 <!-- product right -->

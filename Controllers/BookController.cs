@@ -153,9 +153,54 @@ namespace BookStore.Controllers
                 status = true
             }, JsonRequestBehavior.AllowGet);
         }
-        public ActionResult Search(int? page, string search)
+        public ActionResult Search(int? page, string search, string ten, string hot,string gia)
         {
-            List<Book> books = db.Books.Where(m=>m.BookName.Contains(search)).ToList();
+            List<Book> books = db.Books.ToList();
+            if (ten != null)
+            {
+                books = db.Books.Where(m => m.Author.AuthorName.Contains(ten)).ToList();
+            }
+            if(search != null)
+            {
+                books = db.Books.Where(m => m.BookName.Contains(search)).ToList();
+            }
+            if(hot == "new")
+            {
+                books = db.Books.SqlQuery("select * from Book order by CreateByDate DESC").ToList();
+            }
+            if (hot == "bestsell")
+            {
+                books = db.Books.SqlQuery("select * from Book order by TotalSell DESC").ToList();
+            }
+            if (gia != null)
+            {
+                if(gia == "1")
+                {
+                    books = db.Books.SqlQuery("select * from Book where Price <= 10000").ToList();
+                }
+                if (gia == "2")
+                {
+                    books = db.Books.SqlQuery("select * from Book where Price >= 10000 and Price <= 30000").ToList();
+                }
+                if (gia == "3")
+                {
+                    books = db.Books.SqlQuery("select * from Book where Price >= 30000 and Price <= 50000").ToList();
+                }
+                if (gia == "4")
+                {
+                    books = db.Books.SqlQuery("select * from Book where Price >= 50000 and Price <= 80000").ToList();
+                }
+                if (gia == "5")
+                {
+                    books = db.Books.SqlQuery("select * from Book where Price >= 80000 and Price <= 100000").ToList();
+                }
+                if (gia == "6")
+                {
+                    books = db.Books.SqlQuery("select * from Book where Price >= 100000").ToList();
+                }
+
+            }
+
             if (page == null)
             {
                 page = 1;
