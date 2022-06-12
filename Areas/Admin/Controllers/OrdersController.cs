@@ -39,7 +39,7 @@ namespace BookStore.Areas.Admin.Controllers
             Order order = db.Orders.Find(id);
             if (order == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Error", "Error");
             }
             return View(order);
         }
@@ -55,7 +55,7 @@ namespace BookStore.Areas.Admin.Controllers
             Order order = db.Orders.Find(id);
             if (order == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Error", "Error");
             }
             return View(order);
         }

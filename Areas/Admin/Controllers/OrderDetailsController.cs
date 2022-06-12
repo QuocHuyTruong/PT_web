@@ -81,7 +81,7 @@ namespace BookStore.Areas.Admin.Controllers
             OrderDetail orderDetail = db.OrderDetails.Find(id);
             if (orderDetail == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Error", "Error");
             }
             ViewBag.BookID = new SelectList(db.Books, "BookID", "BookName", orderDetail.BookID);
             ViewBag.OrderID = new SelectList(db.Orders, "OrderID", "Address", orderDetail.OrderID);
@@ -116,7 +116,7 @@ namespace BookStore.Areas.Admin.Controllers
             OrderDetail orderDetail = db.OrderDetails.Find(id);
             if (orderDetail == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Error", "Error");
             }
             return View(orderDetail);
         }

@@ -37,7 +37,7 @@ namespace BookStore.Areas.Admin.Controllers
             Category category = db.Categories.Find(id);
             if (category == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Error", "Error");
             }
             return View(category);
         }
@@ -50,7 +50,7 @@ namespace BookStore.Areas.Admin.Controllers
             Category category = db.Categories.Find(id);
             if (category == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Error", "Error");
             }
             ViewBag.CateGroupID = new SelectList(db.CategoryGroups, "GroupID", "GroupName", category.CateGroupID);
             return View(category);

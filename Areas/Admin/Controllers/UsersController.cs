@@ -26,7 +26,7 @@ namespace BookStore.Areas.Admin.Controllers
             User user = db.Users.Find(id);
             if (user == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Error", "Error");
             }
             return View(user);
         }
@@ -62,7 +62,7 @@ namespace BookStore.Areas.Admin.Controllers
             User user = db.Users.Find(id);
             if (user == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Error", "Error");
             }
             ViewBag.RoleID = new SelectList(db.Roles, "RoleID", "RoleName", user.RoleID);
             return View(user);
@@ -95,7 +95,7 @@ namespace BookStore.Areas.Admin.Controllers
             User user = db.Users.Find(id);
             if (user == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Error", "Error");
             }
             return View(user);
         }

@@ -35,7 +35,7 @@ namespace BookStore.Areas.Admin.Controllers
             Author author = db.Authors.Find(id);
             if (author == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Error","Error");
             }
             return View(author);
         }
@@ -73,7 +73,7 @@ namespace BookStore.Areas.Admin.Controllers
             Author author = db.Authors.Find(id);
             if (author == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Error", "Error");
             }
             return View(author);
         }
@@ -104,7 +104,7 @@ namespace BookStore.Areas.Admin.Controllers
             Author author = db.Authors.Find(id);
             if (author == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Error", "Error");
             }
             return View(author);
         }

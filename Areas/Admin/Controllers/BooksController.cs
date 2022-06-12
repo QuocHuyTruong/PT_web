@@ -38,7 +38,7 @@ namespace BookStore.Areas.Admin.Controllers
             Book book = db.Books.Find(id);
             if (book == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Error", "Error");
             }
             return View(book);
         }
@@ -88,7 +88,7 @@ namespace BookStore.Areas.Admin.Controllers
             Book book = db.Books.Find(id);
             if (book == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Error", "Error");
             }
             ViewBag.AuthorID = new SelectList(db.Authors, "AuthorID", "AuthorName", book.AuthorID);
             ViewBag.ProducerID = new SelectList(db.Producers, "ProducerID", "ProducerName", book.ProducerID);
@@ -123,7 +123,7 @@ namespace BookStore.Areas.Admin.Controllers
             Book book = db.Books.Find(id);
             if (book == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Error", "Error");
             }
             return View(book);
         }
