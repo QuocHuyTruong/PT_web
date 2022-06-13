@@ -167,7 +167,6 @@ D:\phattrienweb\repo\BookStore\BookStore\bin\System.Web.WebPages.Razor.xml
 D:\phattrienweb\repo\BookStore\BookStore\bin\Newtonsoft.Json.xml
 D:\phattrienweb\repo\BookStore\BookStore\bin\Antlr3.Runtime.pdb
 D:\phattrienweb\repo\BookStore\BookStore\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\phattrienweb\repo\BookStore\BookStore\obj\Debug\BookStore.csproj.AssemblyReference.cache
 D:\phattrienweb\repo\BookStore\BookStore\obj\Debug\BookStore.csproj.CoreCompileInputs.cache
 D:\phattrienweb\repo\BookStore\BookStore\obj\Debug\BookStore.csproj.CopyComplete
 D:\phattrienweb\repo\BookStore\BookStore\obj\Debug\BookStore.dll
@@ -178,3 +177,4 @@ D:\phattrienweb\repo\BookStore\BookStore\bin\EPPlus.System.Drawing.dll
 D:\phattrienweb\repo\BookStore\BookStore\bin\Microsoft.IO.RecyclableMemoryStream.dll
 D:\phattrienweb\repo\BookStore\BookStore\bin\EPPlus.xml
 D:\phattrienweb\repo\BookStore\BookStore\bin\Microsoft.IO.RecyclableMemoryStream.xml
+D:\phattrienweb\repo\BookStore\BookStore\obj\Debug\BookStore.csproj.AssemblyReference.cache

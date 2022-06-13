@@ -134,6 +134,7 @@ namespace BookStore.Areas.Admin.Controllers
             }
 
             List<Order> listorder = db.Orders.ToList();
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
             ExcelPackage excel = new ExcelPackage();
             var workSheet = excel.Workbook.Worksheets.Add("Sheet1");
             workSheet.TabColor = System.Drawing.Color.Black;
